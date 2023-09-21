@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left_container">
+    <h1 class="header">Stay updated!</h1>
+    <p class="para-text">Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul>
+        <li class="form-lists">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
+          <p class="form-text">Product discovery and building what matters</p>
+        </li>
+        <li class="form-lists">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
+          <p class="form-text">Measuring to ensure updates are a success</p>
+        </li>
+        <li class="form-lists">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
+          <p class="form-text">And much more!</p>
+        </li>
+      </ul>
+
+      <form id="emailForm">
+        <label for="emailId" class="email-label">Email address</label>
+        <div id="error" class="error-message">Valid email required</div>
+        <input type="email" id="email" class="email-field" placeholder="email@company.com"/>
+        <input type="button" onclick="submitForm()" class="subscribe-button" value="Subscribe to monthly newsletter"/>
+      </form>
+  </div>
+
+  <div class="right_container">
+    <img src="./assets/images/illustration-sign-up-desktop.svg"/>
+  </div>
+   
+</div>
+
+
+  
+  <script>
+    function isEmailValid (email) {
+      var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+      return emailRegex.test(email);
+    }
+
+    function submitForm() {
+      var emailInput = document.getElementById("email");
+      var email = emailInput.value;
+      var errorDiv = document.getElementById("error");
+
+      if(isEmailValid(email)) {
+        window.location.href = "success.html";
+
+      } else {
+        errorDiv.style.display = "flex";
+      }
+    }
+  </script>
+</body>
+</html>
